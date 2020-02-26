@@ -1,24 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+.welcome {
+  display: flex;
+  justify-content: center;
+}
+
 .signUp__block {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 50%;
-  float: left;
+
+  width: 200px;
+  margin: auto;
 }
 
-.signIn__btn,
-.signUp__btn {
+input {
+  margin: 5px auto;
+  width: 100%;
+}
+
+.signUp__btn,
+.backToSingIn {
+  text-align: center;
   background-color: blue;
   color: white;
-  border: 1px solid blue;
-  border-radius: 5px;
-}
-
-.backToSingIn {
-  color: blue;
-  cursor: pointer;
-}
-
-.backToSingIn:hover {
-  color: red;
+  width: 100%;
+  height: 20px;
+  margin: 5px auto;
 }

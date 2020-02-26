@@ -7,53 +7,35 @@
   justify-content: center;
 }
 
-.modalWindow {
-  width: 250px;
-  height: 300px;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.input__block {
-  width: 500px;
-  height: 290px;
-  background-color: #c3c3c3;
-  transition: all ease 1s;
-}
-
 .signIn__block {
   display: flex;
   flex-wrap: wrap;
-  align-content: flex-start;
-  width: 50%;
-  float: left;
+  justify-content: center;
+
+  width: 200px;
+  margin: auto;
 }
 
-.email,
-.password,
-.name,
-.signIn__btn,
-.signUp__btn {
-  margin: 10px auto;
-  width: 180px;
-  height: 25px;
-  border-radius: 5px;
-  border: 1px solid #c3c3c3;
+input {
+  margin: 5px auto;
+  width: 100%;
+}
+
+.signIn__btn {
+  text-align: center;
+  background-color: blue;
+  color: white;
+  width: 100%;
+  height: 20px;
 }
 
 .not__registered {
   display: flex;
+  justify-content: space-around;
   flex-wrap: nowrap;
-  margin: auto;
+  width: 100%;
 }
 
 .signUp {
-  margin: 16px 0 16px 5px;
-  color: blue;
-  cursor: pointer;
-}
-
-.signUp:hover {
-  color: red;
+  margin: 16px 2px;
 }
