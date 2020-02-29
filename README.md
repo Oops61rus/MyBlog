@@ -2,4 +2,4 @@
 My first blog
 
 ### To start:
-print address localhost:3000
+enter the link in the address bar

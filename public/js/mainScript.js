@@ -4,6 +4,10 @@ function Main() {
   this.init = function() {
     let signUp = document.querySelector('.signUp__btn');
     signUp.addEventListener('click', this.checkPass.bind(this));
+    this.name = document.querySelector('#userName');
+    this.email = document.querySelector('#userEmail');
+    this.password = document.querySelector('#userPass');
+    this.passwordConfirm = document.querySelector('.confirmPassword');
   }
 }
 
@@ -14,11 +18,7 @@ Main.prototype = {
   },
   
   checkPass: function() {
-    this.name = document.querySelector('#userName').value;
-    this.email = document.querySelector('#userEmail').value;
-    this.password = document.querySelector('#userPass').value;
-    this.passwordConfirm = document.querySelector('.confirmPassword').value;
-    if(this.password !== this.passwordConfirm || this.password == '' || this.passwordConfirm == '') {
+    if(this.password.value !== this.passwordConfirm.value || this.password.value == '' || this.passwordConfirm.value == '') {
       wrong.innerHTML = 'Passwords dont match!';
     }
   }
