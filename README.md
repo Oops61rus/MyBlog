@@ -2,4 +2,4 @@
 My first blog
 
 ### To start:
-https://oops61rus.github.io/MyBlog/
+print address localhost:3000
