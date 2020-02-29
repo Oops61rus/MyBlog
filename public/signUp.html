@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../public/stylesheets/modalSingUp.css">
+  <link rel="stylesheet" href="css/modalSingUp.css">
   <title>Sign Up</title>
 </head>
 <body>
@@ -14,14 +14,17 @@
   <div class="signUp__block">
     <input type="text" class="name" id="userName" placeholder="Your Name:">
     <input type="email" class="email" id="userEmail" placeholder="E-mail:">
-    <input type="password" class="password" placeholder="Password:">
-    <input type="password" class="password" id="userPass" placeholder="Confirm password:">
+    <input type="password" class="password" id="userPass" placeholder="Password:">
+    <input type="password" class="confirmPassword"  placeholder="Confirm password:">
+    
+    <div class="wrong"></div>
+
     <a href="#" class="signUp__btn">SignUp</a>
-    <a href="login.html" class="backToSingIn">&#8592 Back to Sign In</a>
+    <a href="index.html" class="backToSingIn">&#8592 Back to Sign In</a>
   </div>
 
-  <script src="../public/javascripts/app.js"></script>
-  <script src="../public/javascripts/user.js"></script>
-  <script src="../public/javascripts/storage.js"></script>
+  <script src="js/mainScript.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/storage.js"></script>
 </body>
 </html>

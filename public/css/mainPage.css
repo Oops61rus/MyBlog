@@ -1,7 +1,4 @@
 body {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
   margin: 0;
 }
 
@@ -16,8 +13,9 @@ body {
   flex-direction: column;
 
   position: fixed;
+  top: 0;
   width: 200px;
-  height: 900px;
+  height: 400px;
   background-color: green;
   color: white;
 }
@@ -25,6 +23,19 @@ body {
 .posts {
   display: flex;
   flex-direction: column;
+}
+
+.name {
+  text-align: center;
+  margin: 20px auto 50px;
+}
+
+.all__posts,
+.my__posts,
+.add__post,
+.logOut {
+  text-align: center;
+  margin: 20px auto;
 }
 
 .logOut {

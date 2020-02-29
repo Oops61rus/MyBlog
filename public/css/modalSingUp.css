@@ -16,9 +16,14 @@
   margin: auto;
 }
 
-input {
+input,
+.wrong {
   margin: 5px auto;
   width: 100%;
+}
+
+.wrong {
+  color: red;
 }
 
 .signUp__btn,
