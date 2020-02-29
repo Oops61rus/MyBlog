@@ -4,9 +4,9 @@ var app = express();
 
 app.use(cors());
 
-app.get('/', function (req, res, next) {
-  res.sendFile(__dirname, '/views/login.html');
-  console.log(__dirname);
+app.get('/', (req, res) =>  {
+  console.log(req);
+  res.sendStatus(200).end()
 });
 
 app.listen(3000, function () {
