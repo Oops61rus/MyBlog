@@ -1,8 +1,22 @@
-var express = require('express');
-var cors = require('cors');
-var path = require('path');
-var base = process.cwd(); 
-var app = express();
+let express = require('express');
+let cors = require('cors');
+let path = require('path');
+const axios = require('axios').default;
+let base = process.cwd(); 
+let app = express();
+
+// let fs = require('fs');
+// fs.writeFileSync('../../listUsers.json', str);
+
+function axiosPost(callback) {
+  axios.post('listUsers.json', callback)
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
 
 app.use(cors());
 app.use(express.static(path.join(base, '/public')));
