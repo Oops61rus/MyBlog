@@ -4,13 +4,13 @@ function Main() {
     this.email = document.querySelector('#userEmail');
     this.password = document.querySelector('#userPass');
     this.passwordConfirm = document.querySelector('.confirmPassword');
-    
+
     let signUp = document.querySelector('.signUp__btn');
     let self = this;
-    
+
     signUp.addEventListener('click', function() {
       const isValid = self.checkPass();
-      if (!isValid) {
+      if (isValid) {
         self.addUser();
       }
     });
@@ -19,9 +19,17 @@ function Main() {
 
 Main.prototype = {
   addUser: function() {
-    let user = new User(this.name.value, this.email.value, this.password.value);
-    let str = JSON.stringify(user);
-    axiosPost(str);
+    axios.post('http://localhost:3000/auth/sign-up', {
+      name: this.name.value,
+      email: this.email.value,
+      password: this.password.value
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   },
   
   checkPass: function() {
