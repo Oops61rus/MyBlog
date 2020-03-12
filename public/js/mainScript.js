@@ -19,7 +19,7 @@ function Main() {
 
 Main.prototype = {
   addUser: function() {
-    axios.post('http://localhost:3000/auth/sign-up', {
+    axios.post('http://localhost:3000/api/v1/signUp', {
       name: this.name.value,
       email: this.email.value,
       password: this.password.value
