@@ -1,4 +1,4 @@
-function Main() {
+function SignUp() {
   this.init = function() {
     this.name = document.querySelector('#userName');
     this.email = document.querySelector('#userEmail');
@@ -17,8 +17,10 @@ function Main() {
   }
 }
 
-Main.prototype = {
+SignUp.prototype = {
   addUser: function() {
+    const wrong = document.querySelector('.wrong');
+    const success = document.querySelector('.success');
     axios.post('http://localhost:3000/api/v1/signUp', {
       name: this.name.value,
       email: this.email.value,
@@ -26,16 +28,27 @@ Main.prototype = {
     })
     .then(function (response) {
       console.log(response);
+      const span = document.createElement('span');
+      span.append('Registration succsessfully!');
+      success.append(span);
+      setTimeout(() => {success.removeChild(span)}, 3000);
     })
     .catch(function (error) {
       console.log(error);
+      const span = document.createElement('span');
+      span.append(`Email is not unique \n ${error} \n`);
+      wrong.append(span);
+      setTimeout(() => {wrong.removeChild(span)}, 3000); // append child
     });
   },
   
   checkPass: function() {
-    let wrong = document.querySelector('.wrong');
+    const wrong = document.querySelector('.wrong');
     if(this.password.value !== this.passwordConfirm.value || this.password.value == '' || this.passwordConfirm.value == '') {
-      wrong.innerHTML = 'Passwords dont match!';
+      const span = document.createElement('span');
+      span.append('Passwords dont match! \n');
+      wrong.append(span);
+      setTimeout(() => {wrong.removeChild(span)}, 3000);
       return false
     } else {
       return true
@@ -43,5 +56,5 @@ Main.prototype = {
   }
 }
 
-let mainScript = new Main();
-mainScript.init();
+let signUp = new SignUp();
+signUp.init();

@@ -26,6 +26,10 @@ input,
   color: red;
 }
 
+.success {
+  color: yellowgreen;
+}
+
 .signUp__btn,
 .backToSingIn {
   text-align: center;
