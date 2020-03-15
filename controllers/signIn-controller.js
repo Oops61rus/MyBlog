@@ -1,4 +1,4 @@
-const sequelize = require("sequelize");
+const sequelize = require("../config/sequelize");
 const tokenService = require("../services/tokenCreator");
 const checkHash = require("../services/checkHash");
 
@@ -25,7 +25,8 @@ const signInUser = (req, res) => {
         }
       }
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err)
       res.sendStatus(401);
     });
 };

@@ -1,15 +1,11 @@
 function SignIn() {
-  this.init = function() {
+  this.init = () => {
     this.email = document.querySelector(".email");
     this.password = document.querySelector(".password");
-
     const signIn = document.querySelector(".signIn__btn");
-    let self = this;
-
-    signIn.addEventListener("click", function() {
-      const isValid = self.checkUser();
-      if (isValid) {
-      }
+    
+    signIn.addEventListener("click", () => {
+      this.checkUser();
     });
   };
 }
@@ -17,13 +13,16 @@ function SignIn() {
 SignIn.prototype = {
   checkUser: function() {
     const wrong = document.querySelector(".wrong");
-    axios.post("http://localhost:3000/api/v1/signIn"),
-      {
+    axios.post("http://localhost:3000/api/v1/signIn", {
         email: this.email.value,
         password: this.password.value
-      }
-        .then()
-        .catch(function(err) {
+      })
+        .then(res => {
+          if (res.status === 200) {
+            window.location = "/mainPage";
+          }
+        })
+        .catch(err => {
           console.log(err);
           const span = document.createElement("span");
           span.append(`${err} \n`);

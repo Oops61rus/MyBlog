@@ -1,5 +1,5 @@
 function SignUp() {
-  this.init = function() {
+  this.init = () => {
     this.name = document.querySelector("#userName");
     this.email = document.querySelector("#userEmail");
     this.password = document.querySelector("#userPass");
@@ -27,7 +27,7 @@ SignUp.prototype = {
         email: this.email.value,
         password: this.password.value
       })
-      .then(function(response) {
+      .then((response) => {
         console.log("response ========", response);
         const span = document.createElement("span");
         span.append("Registration succsessfully!");
@@ -36,7 +36,7 @@ SignUp.prototype = {
           success.removeChild(span);
         }, 3000);
       })
-      .catch(function(error) {
+      .catch((error) => {
         console.log(error);
         const span = document.createElement("span");
         span.append(`Email is not unique \n ${error} \n`);
