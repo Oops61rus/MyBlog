@@ -1,6 +1,6 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const salt = 10;
 
-module.exports = (password) => {
+module.exports = password => {
   return bcrypt.hashSync(password, salt);
 };

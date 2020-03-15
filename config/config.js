@@ -1,12 +1,13 @@
-module.exports = [      // настройки для файла sequelize и подключения БД
-  'blog',
-  'postgres',
-  '123',
+module.exports = [
+  // настройки для файла sequelize и подключения БД
+  "blog",
+  "postgres",
+  "123",
   {
-      host: 'localhost',
-      dialect: 'postgres',
-      define: {
-        timestamps: false
-      },
+    host: "localhost",
+    dialect: "postgres",
+    define: {
+      timestamps: false
+    }
   }
 ];

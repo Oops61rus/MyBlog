@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require("express");
 const signIn = express.Router();
-// здесь подключить файл для проверки токена checkToken.js и добавить его в коллбэк функции signUp
-const controllerPages = require('../../controllers/pagesController');
+// const checkToken = require('../../services/tokenChecker')
+const controllerPages = require("../../controllers/pagesController");
 
-signIn.get('/', controllerPages.urlPage('public/index.html'));
+signIn.get("/", controllerPages.urlPage("/public/signIn.html"));
 
 module.exports = signIn;

@@ -1,13 +1,14 @@
-const Sequelize = require('sequelize');       // подключение СУБД
-const config = require('./config');           // подключение файла config
-const sequelize = new Sequelize(...config);   // создаем класс Sequelize с параметрами из файла config
+const Sequelize = require("sequelize"); // подключение СУБД
+const config = require("./config"); // подключение файла config
+const sequelize = new Sequelize(...config); // создаем класс Sequelize с параметрами из файла config
 
-sequelize.authenticate()                      // метод аутентификации с БД
+sequelize
+  .authenticate() // метод аутентификации с БД
   .then(() => {
-    console.log('Connected');
+    console.log("Connected");
   })
-  .catch( err => {
-    console.error('Unable to connect to db', err);
+  .catch(err => {
+    console.error("Unable to connect to db", err);
   });
 
-module.exports = sequelize;    // экспорт модуля
+module.exports = sequelize; // экспорт модуля
