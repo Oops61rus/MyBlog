@@ -2,13 +2,8 @@ const express = require("express"); // фреймворк для приложе�
 const path = require("path"); // утилиты для работы с файлами и путями
 const cors = require("cors"); // для безопасности (разрешать запросы от моего имени, запрещать от других)
 const bodyParser = require("body-parser"); // промежуточное ПО для анализа тела Node.js
-
-const signUpRouter = require("./routes/rest/signUp"); // путь к маршрутизатору
-const signInRouter = require("./routes/rest/signIn"); // путь к маршрутизатору
-
-const signUpPageRouter = require("./routes/pages/signUp-page");
-const signInPageRouter = require("./routes/pages/signIn-page");
-
+const checkToken = require("./services/tokenChecker");
+const cookieParser = require('cookie-parser')
 const app = express();
 const base = process.cwd(); // место где запущено приложение в системе (папка MyBlog)
 
@@ -16,9 +11,19 @@ app.use(cors()); // запуск библиотеки CORS
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(base, "/public")));
+app.use(cookieParser())
+
+const signUpRouter = require("./routes/rest/signUp"); 
+const signInRouter = require("./routes/rest/signIn"); 
+
+const signUpPageRouter = require("./routes/pages/signUp-page");
+const signInPageRouter = require("./routes/pages/signIn-page");
 
 app.use("/signUp", signUpPageRouter);
 app.use("/", signInPageRouter);
+app.use("/home", checkToken, (req, res) => {
+  res.sendFile(path.join(base, '/public/mainPage.html'));
+})
 
 app.use("/api/v1/signUp", signUpRouter);
 app.use("/api/v1/signIn", signInRouter);

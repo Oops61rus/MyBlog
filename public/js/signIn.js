@@ -19,7 +19,7 @@ SignIn.prototype = {
       })
         .then(res => {
           if (res.status === 200) {
-            window.location = "/mainPage";
+            window.location = "/home";
           }
         })
         .catch(err => {

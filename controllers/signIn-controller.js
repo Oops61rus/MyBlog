@@ -1,33 +1,35 @@
 const sequelize = require("../config/sequelize");
 const tokenService = require("../services/tokenCreator");
 const checkHash = require("../services/checkHash");
+const { QueryTypes } = require('sequelize');
 
 const signInUser = (req, res) => {
   const user = req.body;
 
   sequelize
-    .query(`SELECT * FROM users WHERE (email = '${user.email}')`)
+    .query(`SELECT * FROM users WHERE (email = '${user.email}')`, {type: QueryTypes.SELECT})
     .then(data => {
-      if (!data) {
-        res.status(201).send("invalid email or password");
+      const userDB = data[0];
+      if (!userDB) {
+        res.status(401).send("invalid email or password");
       } else {
-        let isHash = checkHash(user.password, data.password);
+        const isHash = checkHash(user.password, userDB.password);
         if (isHash) {
-          let activeUser = { name: data.name, id: data.id };
-          res.json([
-            activeUser.name,
-            activeUser.id,
-            tokenService.accessToken,
-            tokenService.refreshToken
-          ]);
+          const accessToken = tokenService.accessToken(userDB.name, userDB.email);
+          const refreshToken = tokenService.refreshToken(userDB.name, userDB.email);
+          const activeUser = { name: userDB.name, id: userDB.id };
+          res
+            .cookie( 'accessToken', accessToken, {expires: new Date(Date.now() + 24 * 60 * 60 * 1000)})
+            .cookie( 'refreshToken', refreshToken, {expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)})
+            .json(activeUser)
         } else {
-          res.status(201).send("invalid email or password");
+          res.status(401).send("invalid email or password");
         }
       }
     })
     .catch((err) => {
       console.log(err)
-      res.sendStatus(401);
+      res.sendStatus(500);
     });
 };
 
