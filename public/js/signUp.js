@@ -14,6 +14,34 @@ function SignUp() {
         self.addUser();
       }
     });
+    this.name.onkeyup = (e) => {
+      if (e.key !== 'Enter') return;
+      const isValid = self.checkPass();
+      if (isValid) {
+        self.addUser();
+      }
+    }
+    this.email.onkeyup = (e) => {
+      if (e.key !== 'Enter') return;
+      const isValid = self.checkPass();
+      if (isValid) {
+        self.addUser();
+      }
+    }
+    this.password.onkeyup = (e) => {
+      if (e.key !== 'Enter') return;
+      const isValid = self.checkPass();
+      if (isValid) {
+        self.addUser();
+      }
+    }
+    this.passwordConfirm.onkeyup = (e) => {
+      if (e.key !== 'Enter') return;
+      const isValid = self.checkPass();
+      if (isValid) {
+        self.addUser();
+      }
+    }
   };
 }
 
@@ -28,7 +56,7 @@ SignUp.prototype = {
         password: this.password.value
       })
       .then(response => {
-        console.log("response ========", response);
+        console.log(response);
         const span = document.createElement("span");
         span.append("Registration succsessfully!");
         success.append(span);

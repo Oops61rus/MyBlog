@@ -7,6 +7,14 @@ function SignIn() {
     signIn.addEventListener("click", () => {
       this.checkUser();
     });
+    this.email.onkeyup = (e) => {
+      if (e.key !== 'Enter') return;
+      this.checkUser();
+    }
+    this.password.onkeyup = (e) => {
+      if (e.key !== 'Enter') return;
+      this.checkUser();
+    }
   };
 }
 
