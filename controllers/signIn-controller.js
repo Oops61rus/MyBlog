@@ -9,12 +9,15 @@ const signInUser = async (req, res) => {
     const data = await userService.authUser(user);
     const userDB = data[0];
     if (!userDB) {
-      res.status(401).send("invalid email");
+      res.status(401).send("invalid email or password");
     } else {
       const isHash = checkHash(user.password, userDB.password);
       if (isHash) {
         const accessToken = tokenService.accessToken(userDB.name, userDB.email);
-        const refreshToken = tokenService.refreshToken(userDB.name, userDB.email);
+        const refreshToken = tokenService.refreshToken(
+          userDB.name,
+          userDB.email
+        );
         const activeUser = { name: userDB.name, id: userDB.id };
         res
           .cookie("accessToken", accessToken, {
