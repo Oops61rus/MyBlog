@@ -22,7 +22,7 @@ const signInPageRouter = require("./routes/pages/signIn-page");
 app.use("/signUp", signUpPageRouter);
 app.use("/", signInPageRouter);
 app.use("/home", checkToken, (req, res) => {
-  res.sendFile(path.join(base, '/public/mainPage.html'));
+  res.sendFile(path.join(base, '/public/home.html'));
 })
 
 app.use("/api/v1/signUp", signUpRouter);
