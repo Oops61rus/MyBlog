@@ -23,7 +23,6 @@ module.exports = {
   },
 
   authUser: async data => {
-    console.log(data);
     try {
       const result = await sequelize.query(
         `SELECT * FROM users WHERE (email = email) `,
