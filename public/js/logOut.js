@@ -1,26 +1,29 @@
-import Cookies from 'js-cookie';
+import Cookies from 'js-cookie'
 
-export default class LogOut {
+export default class Logout {
   constructor() {
-    this.cookie = document.cookie;
     this.storage = window.localStorage;
+    this.cookie = document.cookie;
 
     this.init = () => {
-      this.logOutBtn = document.querySelector('.logOut');
+      this.logOutBtn = document.querySelector(".logout");
       this.logOutBtn.addEventListener("click", () => {
-        this.clearCookies();
         this.clearStorage();
-        window.location = '/';
+        this.clearCookies();
+        window.location = "/";
       });
-    }
+    };
   }
 
   clearStorage() {
-    this.storage.removeItem('accessToken', 'refreshToken');
+    this.storage.removeItem("token");
   }
 
   clearCookies() {
-    Cookies.remove('accessToken');
-    Cookies.remove('refreshToken');
+    Cookies.remove("token");
+    Cookies.remove("userName");
   }
 }
+
+const logOut = new LogOut();
+logOut.init();

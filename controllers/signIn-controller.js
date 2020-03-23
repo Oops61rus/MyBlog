@@ -4,7 +4,6 @@ const userService = require("../services/user-service");
 
 const signInUser = async (req, res) => {
   const user = req.body;
-  console.log('signInUser start')
   try {
     const data = await userService.authUser(user);
     const userDB = data[0];
@@ -14,10 +13,7 @@ const signInUser = async (req, res) => {
       const isHash = checkHash(user.password, userDB.password);
       if (isHash) {
         const accessToken = tokenService.accessToken(userDB.name, userDB.email);
-        const refreshToken = tokenService.refreshToken(
-          userDB.name,
-          userDB.email
-        );
+        const refreshToken = tokenService.refreshToken(userDB.name, userDB.email);
         const activeUser = { name: userDB.name, id: userDB.id };
         res
           .cookie("accessToken", accessToken, {
@@ -27,7 +23,6 @@ const signInUser = async (req, res) => {
             expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
           })
           .json(activeUser);
-          console.log('signInUser end')
       } else {
         res.status(401).send("invalid email or password");
       }

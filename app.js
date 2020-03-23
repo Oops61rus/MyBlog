@@ -11,7 +11,7 @@ app.use(cors()); // запуск библиотеки CORS
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(checkToken, express.static(path.join(base, "/public")));
+app.use(express.static(path.join(base, "/public")));
 
 const signUpRouter = require("./routes/rest/signUp");
 const signInRouter = require("./routes/rest/signIn");

@@ -14,34 +14,34 @@ function SignUp() {
         self.addUser();
       }
     });
-    this.name.onkeyup = (e) => {
-      if (e.key !== 'Enter') return;
+    this.name.onkeyup = e => {
+      if (e.key !== "Enter") return;
       const isValid = self.checkPass();
       if (isValid) {
         self.addUser();
       }
-    }
-    this.email.onkeyup = (e) => {
-      if (e.key !== 'Enter') return;
+    };
+    this.email.onkeyup = e => {
+      if (e.key !== "Enter") return;
       const isValid = self.checkPass();
       if (isValid) {
         self.addUser();
       }
-    }
-    this.password.onkeyup = (e) => {
-      if (e.key !== 'Enter') return;
+    };
+    this.password.onkeyup = e => {
+      if (e.key !== "Enter") return;
       const isValid = self.checkPass();
       if (isValid) {
         self.addUser();
       }
-    }
-    this.passwordConfirm.onkeyup = (e) => {
-      if (e.key !== 'Enter') return;
+    };
+    this.passwordConfirm.onkeyup = e => {
+      if (e.key !== "Enter") return;
       const isValid = self.checkPass();
       if (isValid) {
         self.addUser();
       }
-    }
+    };
   };
 }
 

@@ -39,5 +39,9 @@ body {
 }
 
 .logOut {
+  font-family: "Times New Roman";
+  font-size: 16px;
   color: white;
+  background: none;
+  border: none;
 }

@@ -1,23 +1,21 @@
 function SignIn() {
-  // constructor() {
-    this.init = () => {
-      this.email = document.querySelector(".email");
-      this.password = document.querySelector(".password");
-      const signIn = document.querySelector(".signIn__btn");
-  
-      signIn.addEventListener("click", () => {
-        this.checkUser();
-      });
-      this.email.onkeyup = (e) => {
-        if (e.key !== 'Enter') return;
-        this.checkUser();
-      }
-      this.password.onkeyup = (e) => {
-        if (e.key !== 'Enter') return;
-        this.checkUser();
-      }
+  this.init = () => {
+    this.email = document.querySelector(".email");
+    this.password = document.querySelector(".password");
+    const signIn = document.querySelector(".signIn__btn");
+
+    signIn.addEventListener("click", () => {
+      this.checkUser();
+    });
+    this.email.onkeyup = e => {
+      if (e.key !== "Enter") return;
+      this.checkUser();
     };
-  // }
+    this.password.onkeyup = e => {
+      if (e.key !== "Enter") return;
+      this.checkUser();
+    };
+  };
 }
 
 SignIn.prototype = {

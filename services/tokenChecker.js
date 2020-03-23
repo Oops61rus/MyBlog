@@ -5,7 +5,6 @@ const path = require("path");
 const base = process.cwd();
 
 const checkToken = (req, res, next) => {
-  console.log(req.cookies.refreshToken)
   const refreshToken = req.cookies.refreshToken;
   jwt.verify(refreshToken, privateKey, (err, decoded) => {
     if (decoded) {
@@ -14,7 +13,6 @@ const checkToken = (req, res, next) => {
       req.userId = decoded.data.id;
       next();
     } else {
-      console.log('start verify');
       res.redirect("/signIn");
     }
   });
