@@ -28,6 +28,7 @@ SignIn.prototype = {
       })
       .then(res => {
         if (res.status === 200) {
+          Cookies.set('name', res.data.name);
           window.location = "/home";
         }
       })

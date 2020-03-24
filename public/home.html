@@ -13,7 +13,7 @@
     <main>
       <div class="left__panel">
         <div class="actions">
-          <div class="name">Your Name</div>
+          <div class="username"></div>
           <div class="posts">
             <div class="all__posts">All Posts</div>
             <div class="my__posts">My Posts</div>
@@ -22,9 +22,17 @@
         </div>
         <button type="submit" class="logOut">Log Out</button>
       </div>
+      <div class="main__block">
+        <div class="search__block">
+          <input type="text" class="search" placeholder="Enter name">
+          <button class="search__btn">Search</button>
+        </div>
+        <div class="userlist__block"></div>
+      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="js/userList.js"></script>
     <script src="js/logOut.js"></script>
   </body>
 </html>

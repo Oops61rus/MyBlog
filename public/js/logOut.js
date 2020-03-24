@@ -1,7 +1,6 @@
 class Logout {
   constructor() {
     this.storage = window.localStorage;
-    this.cookie = document.cookie;
 
     this.init = () => {
       this.logOutBtn = document.querySelector(".logOut");
@@ -21,6 +20,7 @@ class Logout {
   clearCookies() {
     Cookies.remove("accessToken");
     Cookies.remove("refreshToken");
+    Cookies.remove("name")
   }
 }
 

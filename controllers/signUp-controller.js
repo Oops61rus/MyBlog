@@ -1,8 +1,20 @@
 const tokenService = require("../services/tokenCreator.js");
 const createHash = require("../services/createHash");
 const userService = require("../services/user-service");
+const validate = require("../services/validator");
 
 const createUser = async (req, res) => {
+  // validate([
+  //   req.body("name")
+  //     .not()
+  //     .isEmpty()
+  //     .isLength({ min: 2, max: 50 }),
+  //   req.body("email")
+  //     .isEmail()
+  //     .normalizeEmail()
+  //     .isLength({ min: 6, max: 50 }),
+  //   req.body("password").isLength({ min: 6, max: 50 })
+  // ]);
   const data = req.body;
   data.password = createHash(data.password);
   const refreshToken = tokenService.refreshToken(data.name, data.email);

@@ -25,9 +25,11 @@ body {
   flex-direction: column;
 }
 
-.name {
+.username {
+  font-weight: 900;
+  font-size: 25px;
   text-align: center;
-  margin: 20px auto 50px;
+  margin: 20px auto 30px;
 }
 
 .all__posts,
@@ -44,4 +46,9 @@ body {
   color: white;
   background: none;
   border: none;
+}
+
+.main__block {
+  display: flex;
+  justify-content: center;
 }
