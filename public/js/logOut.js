@@ -20,9 +20,6 @@ class Logout {
   clearCookies() {
     Cookies.remove("accessToken");
     Cookies.remove("refreshToken");
-    Cookies.remove("name")
+    Cookies.remove("name");
   }
 }
-
-const logOut = new Logout();
-logOut.init();

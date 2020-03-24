@@ -1,9 +1,9 @@
-class User {
+class Users {
   constructor() {}
 
   showUserOnList(arr) {
     this.array = arr;
-    this.list = document.querySelector('.userlist__block');
+    this.list = document.querySelector(".userlist__block");
     const fragment = document.createDocumentFragment();
     this.array.forEach(item => {
       fragment.append(this.createBlockUser(item));
@@ -12,27 +12,24 @@ class User {
   }
 
   createBlockUser(item) {
-    this.blockUser = document.createElement('div');
+    this.blockUser = document.createElement("div");
     const fragment = document.createDocumentFragment();
-    this.blockUser.classList.add('single-user');
+    this.blockUser.classList.add("single-user");
     fragment.append(this.createNewUser(item));
     this.blockUser.append(fragment);
     return this.blockUser;
   }
 
   createNewUser(item) {
-    this.newUser = document.createElement('span');
+    this.newUser = document.createElement("span");
     this.newUser.append(item.name);
-    this.newUser.classList.add('searched-user');
+    this.newUser.classList.add("searched-user");
     return this.newUser;
   }
 
   myUsername() {
-    this.userName = Cookies.get('name');
-    this.userNameBlock =  document.querySelector('.username');
+    this.userName = Cookies.get("name");
+    this.userNameBlock = document.querySelector(".username");
     this.userNameBlock.append(this.userName);
   }
 }
-
-const user = new User();
-user.myUsername();

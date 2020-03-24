@@ -15,18 +15,22 @@ app.use(express.static(path.join(base, "/public")));
 
 const signUpRouter = require("./routes/rest/signUp");
 const signInRouter = require("./routes/rest/signIn");
+const homeRouter = require("./routes/rest/home");
 
 const signUpPageRouter = require("./routes/pages/signUp-page");
 const signInPageRouter = require("./routes/pages/signIn-page");
+const homePageRouter = require("./routes/pages/home-page");
 
 app.use("/signUp", signUpPageRouter);
 app.use("/", signInPageRouter);
-app.use("/home", checkToken, (req, res) => {
-  res.sendFile(path.join(base, "/public/home.html"));
-});
+// app.use("/home", checkToken, (req, res) => {
+//   res.sendFile(path.join(base, "/public/home.html"));
+// });
+app.use("/home", homePageRouter);
 
 app.use("/api/v1/signUp", signUpRouter);
 app.use("/api/v1/signIn", signInRouter);
+app.use("/api/v1/home", homeRouter);
 
 app.listen(3000, function() {
   console.log("Example app listening on port 3000!");

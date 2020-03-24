@@ -25,7 +25,7 @@ module.exports = {
   authUser: async data => {
     try {
       const result = await sequelize.query(
-        `SELECT * FROM users WHERE (email = $email) `,
+        `SELECT * FROM users WHERE (email = $email)`,
         {
           bind: {
             email: data.email
