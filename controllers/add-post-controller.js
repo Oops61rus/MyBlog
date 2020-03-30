@@ -3,7 +3,7 @@ const { QueryTypes } = require("sequelize");
 
 const createPost = (req, res) => {
   const newPost = req.body;
-  const activeUser = req.userId;
+  const activeUser = newPost.userId;
 
   sequelize
     .query(

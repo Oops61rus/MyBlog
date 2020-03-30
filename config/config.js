@@ -9,7 +9,7 @@ module.exports = [
     host: process.env.HOST,
     dialect: process.env.DIALECT,
     define: {
-      timestamps: false
+      timestamps: process.env.TIMESTAMPS
     }
   }
 ];

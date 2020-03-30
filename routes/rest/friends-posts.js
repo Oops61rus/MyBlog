@@ -3,6 +3,6 @@
 // const checkToken = require("../../services/tokenChecker");
 // const allPostsController = require("../../controllers/fssrgghhsrhsrhshtrthsh");
 
-// allPosts.get("/", checkToken, allPostsController.//getMyPosts);
+// allPosts.post("/", checkToken, allPostsController.//getMyPosts);
 
 // module.exports = allPosts;
