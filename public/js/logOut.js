@@ -23,3 +23,6 @@ class Logout {
     Cookies.remove("name");
   }
 }
+
+const logOut = new Logout();
+logOut.init();

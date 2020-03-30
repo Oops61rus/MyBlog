@@ -1,8 +1,6 @@
-// require("dotenv").config();
-// const config = process.env.CONFIG;
+const config = require('./config')
 const Sequelize = require("sequelize"); // подключение СУБД
-const config = require("./config"); // подключение файла config
-const sequelize = new Sequelize(...config); // создаем класс Sequelize с параметрами из файла config
+const sequelize = new Sequelize(...config)
 
 sequelize
   .authenticate() // метод аутентификации с БД

@@ -14,9 +14,14 @@ class Users {
   createBlockUser(item) {
     this.blockUser = document.createElement("div");
     const fragment = document.createDocumentFragment();
+    const btn = document.createElement("button");
+    btn.classList.add("viev-user-posts");
+    btn.append("Viev posts");
+
     this.blockUser.classList.add("single-user");
     fragment.append(this.createNewUser(item));
     this.blockUser.append(fragment);
+    this.blockUser.append(btn)
     return this.blockUser;
   }
 
@@ -33,3 +38,6 @@ class Users {
     this.userNameBlock.append(this.userName);
   }
 }
+
+const users = new Users();
+users.myUsername();

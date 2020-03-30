@@ -2,7 +2,7 @@ const express = require("express"); // фреймворк для приложе�
 const path = require("path"); // утилиты для работы с файлами и путями
 const cors = require("cors"); // для безопасности (разрешать запросы от моего имени, запрещать от других)
 const bodyParser = require("body-parser"); // промежуточное ПО для анализа тела Node.js
-const checkToken = require("./services/tokenChecker");
+// const checkToken = require("./services/tokenChecker");
 const cookieParser = require("cookie-parser");
 const app = express();
 const base = process.cwd(); // место где запущено приложение в системе (папка MyBlog)
@@ -23,9 +23,6 @@ const homePageRouter = require("./routes/pages/home-page");
 
 app.use("/signUp", signUpPageRouter);
 app.use("/", signInPageRouter);
-// app.use("/home", checkToken, (req, res) => {
-//   res.sendFile(path.join(base, "/public/home.html"));
-// });
 app.use("/home", homePageRouter);
 
 app.use("/api/v1/signUp", signUpRouter);

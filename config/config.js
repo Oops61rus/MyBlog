@@ -1,11 +1,13 @@
+require("dotenv").config();
+
 module.exports = [
   // настройки для файла sequelize и подключения БД
-  "blog",
-  "postgres",
-  "123",
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
   {
-    host: "localhost",
-    dialect: "postgres",
+    host: process.env.HOST,
+    dialect: process.env.DIALECT,
     define: {
       timestamps: false
     }

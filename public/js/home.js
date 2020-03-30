@@ -1,19 +1,11 @@
-import Users from "./userList";
-import Logout from "./logOut";
-
-const users = new Users();
-const logOut = new Logout();
-
 class Home {
   constructor() {
     this.usersArray = [];
 
     this.init = () => {
-      users.myUsername();
-      logOut.init();
-
       this.searchButton = document.querySelector(".search__btn");
-      this.searchButton.addEventListener("click", () => {
+      this.searchButton.addEventListener("click", e => {
+        e.preventDefault();
         this.clearUserList();
 
         this.searchingUser = this.getUserFromInput();
@@ -27,7 +19,7 @@ class Home {
             })
             .then(res => {
               this.usersArray = [...res.data];
-              this.showUserOnList(this.usersArray);
+              users.showUserOnList(this.usersArray);
             })
             .catch(err => {
               console.log(err);
@@ -37,7 +29,7 @@ class Home {
     };
   }
 
-  cleanUserList() {
+  clearUserList() {
     this.usersList = document.querySelector(".userlist__block");
     while (this.usersList.lastChild) {
       this.usersList.removeChild(this.usersList.lastChild);
@@ -55,3 +47,6 @@ class Home {
     }
   }
 }
+
+const home = new Home();
+home.init();

@@ -51,4 +51,31 @@ body {
 .main__block {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  width: 20%;
+  margin: auto;
+}
+
+.search__block {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.userlist__block {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.single-user {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-top: 10px;
+}
+
+.searched-user {
+  font-weight: 900;
+  color: gray;
 }

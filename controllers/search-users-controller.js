@@ -2,12 +2,10 @@ const sequelize = require("../config/sequelize");
 const { QueryTypes } = require("sequelize");
 
 const searchUsers = (req, res) => {
-  // let requiredUser = req.body.user;
-
   sequelize
-    .query(`SELECT users.name, users.id WHERE (name = $requiredUser)`, {
+    .query(`SELECT name, id FROM users WHERE name = $name`, {
       bind: {
-        name: req.body.user.name
+        name: req.body.user
       },
       type: QueryTypes.SELECT
     })
