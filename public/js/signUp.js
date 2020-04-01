@@ -55,8 +55,8 @@ SignUp.prototype = {
         email: this.email.value,
         password: this.password.value
       })
-      .then(response => {
-        console.log(response);
+      .then(res => {
+        console.log(res);
         const span = document.createElement("span");
         span.append("Registration succsessfully!");
         success.append(span);

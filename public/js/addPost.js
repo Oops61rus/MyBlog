@@ -26,7 +26,7 @@ class AddPost {
       this.sendPostBtn.addEventListener("click", e => {
         e.preventDefault();
         this.newPost = this.getInputValues();
-        this.newPost.userId = Cookies.get("name"); // нужно не имя а id
+        this.newPost.userId = Cookies.get("id");
         this.newPost.date = new Date().getTime();
         this.cleanInputsValue();
 
@@ -36,8 +36,6 @@ class AddPost {
         axios
           .post("/api/v1/add-post", { ...this.newPost })
           .then(res => {
-            // res.json("Post added");
-            console.log("Ok");
             res.data;
           })
           .catch(err => {

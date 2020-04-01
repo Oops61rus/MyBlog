@@ -2,18 +2,20 @@ const sequelize = require("../config/sequelize");
 const { QueryTypes } = require("sequelize");
 
 const getMyPosts = (req, res) => {
-  const activeUser = req.userId;
+  const activeUserId = req.query.userId;
+  const activeUserName = req.query.userName;
 
   sequelize
     .query(`SELECT * FROM posts WHERE author_id = $author_id`, {
       bind: {
-        author_id: activeUser
+        author_id: activeUserId
       },
       type: QueryTypes.SELECT
     })
     .then(posts => {
+      console.log(posts)
       posts.forEach(item => {
-        item.name = userName;
+        item.name = activeUserName;
       });
       res.json(posts);
     })

@@ -16,21 +16,25 @@ const signUpRouter = require("./routes/rest/signUp");
 const signInRouter = require("./routes/rest/signIn");
 const homeRouter = require("./routes/rest/home");
 const addPostRouter = require("./routes/rest/add-post");
+const myPostsRouter = require("./routes/rest/my-posts");
 
 const signUpPageRouter = require("./routes/pages/signUp-page");
 const signInPageRouter = require("./routes/pages/signIn-page");
 const homePageRouter = require("./routes/pages/home-page");
 const addPostPageRouter = require("./routes/pages/addPost-page");
+const myPostsPageRouter = require("./routes/pages/myPosts-page");
 
 app.use("/signUp", signUpPageRouter);
 app.use("/", signInPageRouter);
 app.use("/home", homePageRouter);
 app.use("/add-post", addPostPageRouter);
+app.use("/my-posts", myPostsPageRouter);
 
 app.use("/api/v1/signUp", signUpRouter);
 app.use("/api/v1/signIn", signInRouter);
 app.use("/api/v1/home", homeRouter);
 app.use("/api/v1/add-post", addPostRouter);
+app.use("/api/v1/my-posts", myPostsRouter);
 
 app.listen(3000, function() {
   console.log("Example app listening on port 3000!");

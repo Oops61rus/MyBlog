@@ -21,6 +21,7 @@ class Logout {
     Cookies.remove("accessToken");
     Cookies.remove("refreshToken");
     Cookies.remove("name");
+    Cookies.remove("id");
   }
 }
 

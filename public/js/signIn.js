@@ -29,6 +29,7 @@ SignIn.prototype = {
       .then(res => {
         if (res.status === 200) {
           Cookies.set('name', res.data.name);
+          Cookies.set('id', res.data.id);
           window.location = "/home";
         }
       })

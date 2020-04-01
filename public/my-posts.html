@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/my-posts.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="main__header">
+      <h1>My Blog</h1>
+    </header>
+    <main>
+      <div class="left__panel">
+        <div class="actions">
+          <div class="username"></div>
+          <div class="posts">
+            <div class="all__posts">All Posts</div>
+            <div class="my__posts">My Posts</div>
+            <div class="add__post">Add Post</div>
+          </div>
+        </div>
+        <button type="submit" class="logOut">Log Out</button>
+      </div>
+      <div class="main__block">
+        <div class="posts__list"></div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/userList.js"></script>
+    <script src="js/myPosts.js"></script>
+    <script src="js/post.js"></script>
+    <script src="js/logOut.js"></script>
+  </body>
+</html>

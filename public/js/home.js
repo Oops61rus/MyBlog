@@ -9,13 +9,13 @@ class Home {
       this.userButton = document.querySelector(".username");
 
       this.addPostButton.addEventListener("click", () => {
-        window.location = "/add-post.html";
+        window.location = "/add-post";
       });
       this.myPostsButton.addEventListener("click", () => {
-        window.location = "/my-posts.html";
+        window.location = "/my-posts";
       });
       this.allPostsButton.addEventListener("click", () => {
-        window.location = "/all-posts.html";
+        window.location = "/all-posts";
       });
       this.userButton.addEventListener("click", () => {
         window.location = "/home";
