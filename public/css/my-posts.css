@@ -20,7 +20,7 @@ body {
   position: fixed;
   top: 0;
   width: 200px;
-  height: 400px;
+  height: 100%;
   background-color: green;
   color: white;
 }
@@ -78,20 +78,21 @@ body {
   display: flex;
   flex-wrap: wrap;
 
-  border: 1px solid black;
-  padding: 3px;
+  border: 1px solid rgb(163, 163, 163);
+  border-radius: 10px;
+  padding: 5px;
   margin: 10px 0;
 }
 
 .post__headline {
-  width: 50%;
+  width: 65%;
   text-align: left;
   font-weight: 700;
   font-size: 20px;
 }
 
 .post__date {
-  width: 50%;
+  width: 35%;
   text-align: right;
 }
 
