@@ -14,8 +14,10 @@ class Home {
           return false;
         } else {
           axios
-            .post("/api/v1/home", {
-              user: this.searchingUser
+            .get("/api/v1/users/search", {
+              params: {
+                user: this.searchingUser
+              }
             })
             .then(res => {
               this.usersArray = [...res.data];

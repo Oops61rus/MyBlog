@@ -5,7 +5,7 @@ class MyPosts {
       const name = Cookies.get("name");
 
       axios
-        .get("/api/v1/my-posts", {
+        .get("/api/v1/users/id/posts", {
           params: {
             userId: id,
             userName: name

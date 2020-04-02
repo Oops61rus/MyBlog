@@ -34,7 +34,7 @@ class Post {
   createPostDate(item) {
     this.postDate = document.createElement("span");
     this.postDate.classList.add("post__date");
-    this.postDate.append(item); // как вернуть нужное время????
+    this.postDate.append(item);
     return this.postDate;
   }
 

@@ -5,7 +5,7 @@ const searchUsers = (req, res) => {
   sequelize
     .query(`SELECT name, id FROM users WHERE name = $name`, {
       bind: {
-        name: req.body.user
+        name: req.query.user
       },
       type: QueryTypes.SELECT
     })
@@ -13,7 +13,8 @@ const searchUsers = (req, res) => {
       res.send(users);
     })
     .catch(err => {
-      res.send(err);
+      res.send(err)
+      res.json("User not found")
     });
 };
 

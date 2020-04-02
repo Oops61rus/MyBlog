@@ -1,8 +1,8 @@
-const express = require("express");
-const addPost = express.Router();
-const checkToken = require("../../services/tokenChecker");
-const addPostController = require("../../controllers/add-post-controller");
+// const express = require("express");
+// const addPost = express.Router();
+// const checkToken = require("../../services/tokenChecker");
+// const addPostController = require("../../controllers/add-post-controller");
 
-addPost.post("/", checkToken, addPostController.createPost);
+// addPost.post("/", checkToken, addPostController.createPost);
 
-module.exports = addPost;
+// module.exports = addPost;

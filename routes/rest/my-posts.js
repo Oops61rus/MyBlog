@@ -1,8 +1,8 @@
-const express = require("express");
-const myPosts = express.Router();
-const checkToken = require("../../services/tokenChecker");
-const myPostsController = require("../../controllers/my-post-controller");
+// const express = require("express");
+// const myPosts = express.Router();
+// const checkToken = require("../../services/tokenChecker");
+// const myPostsController = require("../../controllers/my-post-controller");
 
-myPosts.get("/", checkToken, myPostsController.getMyPosts);
+// myPosts.get("/", checkToken, myPostsController.getMyPosts);
 
-module.exports = myPosts;
+// module.exports = myPosts;
