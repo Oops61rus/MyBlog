@@ -3,24 +3,6 @@ class Home {
     this.usersArray = [];
 
     this.init = () => {
-      this.addPostButton = document.querySelector(".add__post");
-      this.myPostsButton = document.querySelector(".my__posts");
-      this.allPostsButton = document.querySelector(".all__posts");
-      this.userButton = document.querySelector(".username");
-
-      this.addPostButton.addEventListener("click", () => {
-        window.location = "/add-post";
-      });
-      this.myPostsButton.addEventListener("click", () => {
-        window.location = "/my-posts";
-      });
-      this.allPostsButton.addEventListener("click", () => {
-        window.location = "/all-posts";
-      });
-      this.userButton.addEventListener("click", () => {
-        window.location = "/home";
-      });
-
       this.searchButton = document.querySelector(".search__btn");
       this.searchButton.addEventListener("click", e => {
         e.preventDefault();

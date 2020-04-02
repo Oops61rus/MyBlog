@@ -36,12 +36,17 @@ body {
   text-align: center;
   margin: 20px auto 30px;
   cursor: pointer;
+  text-decoration: none;
+  color: white;
+  display: block;
 }
 
 .all__posts,
 .my__posts,
 .add__post,
 .logOut {
+  text-decoration: none;
+  color: white;
   text-align: center;
   margin: 20px auto;
   cursor: pointer;
@@ -75,6 +80,7 @@ body {
 
   border: 1px solid black;
   padding: 3px;
+  margin: 10px 0;
 }
 
 .post__headline {

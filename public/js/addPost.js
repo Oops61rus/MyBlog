@@ -4,30 +4,12 @@ class AddPost {
     this.postText = document.querySelector(".post__body");
 
     this.init = () => {
-      this.addPostButton = document.querySelector(".add__post");
-      this.myPostsButton = document.querySelector(".my__posts");
-      this.allPostsButton = document.querySelector(".all__posts");
-      this.userButton = document.querySelector(".username");
-
-      this.addPostButton.addEventListener("click", () => {
-        window.location = "/add-post";
-      });
-      this.myPostsButton.addEventListener("click", () => {
-        window.location = "/my-posts";
-      });
-      this.allPostsButton.addEventListener("click", () => {
-        window.location = "/all-posts";
-      });
-      this.userButton.addEventListener("click", () => {
-        window.location = "/home";
-      });
-
       this.sendPostBtn = document.querySelector(".send__post__btn");
       this.sendPostBtn.addEventListener("click", e => {
         e.preventDefault();
         this.newPost = this.getInputValues();
         this.newPost.userId = Cookies.get("id");
-        this.newPost.date = new Date().getTime();
+        this.newPost.date = this.getDateTime();
         this.cleanInputsValue();
 
         if (!this.newPost) {
@@ -43,6 +25,14 @@ class AddPost {
           });
       });
     };
+  }
+
+  getDateTime() {
+    const today = new Date();
+    const date = `${today.getFullYear()}-${today.getMonth() +
+      1}-${today.getDate()}`;
+    const time = `${today.getHours()}:${today.getMinutes()}`;
+    return `Date: ${date} Time: ${time}`;
   }
 
   getInputValues() {

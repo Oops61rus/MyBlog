@@ -13,7 +13,6 @@ const getMyPosts = (req, res) => {
       type: QueryTypes.SELECT
     })
     .then(posts => {
-      console.log(posts)
       posts.forEach(item => {
         item.name = activeUserName;
       });
