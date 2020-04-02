@@ -4,6 +4,7 @@ function SignUp() {
     this.email = document.querySelector("#userEmail");
     this.password = document.querySelector("#userPass");
     this.passwordConfirm = document.querySelector(".confirmPassword");
+    this.form = document.querySelector(".signUp__block");
 
     const signUp = document.querySelector(".signUp__btn");
     let self = this;
@@ -14,28 +15,8 @@ function SignUp() {
         self.addUser();
       }
     });
-    this.name.onkeyup = e => {
-      if (e.key !== "Enter") return;
-      const isValid = self.checkPass();
-      if (isValid) {
-        self.addUser();
-      }
-    };
-    this.email.onkeyup = e => {
-      if (e.key !== "Enter") return;
-      const isValid = self.checkPass();
-      if (isValid) {
-        self.addUser();
-      }
-    };
-    this.password.onkeyup = e => {
-      if (e.key !== "Enter") return;
-      const isValid = self.checkPass();
-      if (isValid) {
-        self.addUser();
-      }
-    };
-    this.passwordConfirm.onkeyup = e => {
+
+    this.form.onkeyup = e => {
       if (e.key !== "Enter") return;
       const isValid = self.checkPass();
       if (isValid) {

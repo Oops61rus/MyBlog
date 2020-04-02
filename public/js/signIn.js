@@ -2,16 +2,13 @@ function SignIn() {
   this.init = () => {
     this.email = document.querySelector(".email");
     this.password = document.querySelector(".password");
+    this.form = document.querySelector(".signIn__block")
     const signIn = document.querySelector(".signIn__btn");
 
     signIn.addEventListener("click", () => {
       this.checkUser();
     });
-    this.email.onkeyup = e => {
-      if (e.key !== "Enter") return;
-      this.checkUser();
-    };
-    this.password.onkeyup = e => {
+    this.form.onkeyup = e => {
       if (e.key !== "Enter") return;
       this.checkUser();
     };
