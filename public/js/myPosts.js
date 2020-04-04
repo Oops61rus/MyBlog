@@ -4,11 +4,7 @@ class MyPosts {
       const id = Cookies.get("id");
 
       axios
-        .get(`/api/v1/users/${id}/posts`, {
-          params: {
-            userId: id,
-          }
-        })
+        .get(`/api/v1/users/${id}/posts`)
         .then(res => {
           post.showPost(res.data);
         })

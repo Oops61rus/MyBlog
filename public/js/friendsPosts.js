@@ -5,11 +5,12 @@ class FriendsPosts {
     this.init = () => {
       axios.get('/api/v1/users/friendsPosts')
       .then(res => {
+        console.log(res.data)
         this.postsArray = [...res.data];
         post.showPost(res.data);
       })
       .catch(err => {
-        console.error(err);
+        console.log(err);
       });
     }
   }
@@ -21,3 +22,6 @@ class FriendsPosts {
     }
   }
 }
+
+const friendsPosts = new FriendsPosts();
+friendsPosts.init();

@@ -1,4 +1,5 @@
 const sequelize = require("../config/sequelize");
+const { QueryTypes } = require("sequelize");
 
 const removeSubscription = (req, res, next) => {
   const followingUserId = req.query.followingId;

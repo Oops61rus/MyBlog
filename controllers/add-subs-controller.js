@@ -1,10 +1,9 @@
 const sequelize = require("../config/sequelize");
+const { QueryTypes } = require("sequelize");
 
 const addSubscription = (req, res, next) => {
   const followingUserId = req.query.followingId;
   const activeUserId = req.query.activeUserId;
-  console.log(followingUserId)
-  console.log(activeUserId)
 
   if (followingUserId) {
     sequelize

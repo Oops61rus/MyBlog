@@ -1,11 +1,16 @@
 const sequelize = require("../config/sequelize");
+const { QueryTypes } = require("sequelize");
 
 const getFriendsPost = (req, res) => {
   const activeUserId = req.query.userId;
 
   sequelize
     .query(
-      `SELECT * FROM posts RIGHT JOIN users on posts.author_id = users.id WHERE users.id in (SELECT following FROM followers WHERE follower = $follower) AND posts.author_id IS NOT null`,
+      `SELECT posts.id, posts.title, posts.date, posts.text, posts.author_id, users.name 
+      FROM posts 
+      LEFT JOIN users 
+      ON posts.author_id = users.id 
+      WHERE users.id in (SELECT following FROM followers WHERE follower = $follower) AND posts.author_id IS NOT null`,
       {
         bind: {
           follower: activeUserId,
@@ -14,9 +19,11 @@ const getFriendsPost = (req, res) => {
       }
     )
     .then((posts) => {
+      console.log(posts);
       res.json(posts);
     })
     .catch((err) => {
+      console.log(err);
       res.send(err);
     });
 };

@@ -9,8 +9,8 @@ const myPostsController = require("../../controllers/my-post-controller");
 const addPostController = require("../../controllers/add-post-controller");
 const friendsPostsController = require("../../controllers/friends-post-controller");
 
-users.get("/", checkToken, searchController.searchUsers, removeSubsController.removeSubscription, addSubsController.addSubscription);
-users.get("/search", checkToken, searchController.searchUsers, removeSubsController.removeSubscription, addSubsController.addSubscription);
+users.get("/", checkToken, removeSubsController.removeSubscription, addSubsController.addSubscription, searchController.searchUsers);
+users.get("/search", checkToken, removeSubsController.removeSubscription, addSubsController.addSubscription, searchController.searchUsers);
 users.get("/:id/posts", checkToken, myPostsController.getMyPosts);
 users.post("/:id/addPost", checkToken, addPostController.createPost);
 users.get("/freindsPosts", checkToken, friendsPostsController.getFriendsPost);

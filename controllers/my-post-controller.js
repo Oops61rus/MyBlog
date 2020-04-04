@@ -2,7 +2,7 @@ const sequelize = require("../config/sequelize");
 const { QueryTypes } = require("sequelize");
 
 const getMyPosts = (req, res) => {
-  const activeUserId = req.query.userId;
+  const activeUserId = req.params.id;
 
   sequelize
     .query(

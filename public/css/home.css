@@ -78,16 +78,22 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
 }
 
 .single-user {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 100%;
   margin-top: 10px;
 }
 
 .searched-user {
   font-weight: 900;
   color: gray;
+}
+
+.img-heart {
+  width: 20px;
+  height: 20px;
 }
