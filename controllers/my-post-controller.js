@@ -3,22 +3,21 @@ const { QueryTypes } = require("sequelize");
 
 const getMyPosts = (req, res) => {
   const activeUserId = req.query.userId;
-  const activeUserName = req.query.userName;
 
   sequelize
-    .query(`SELECT * FROM posts WHERE author_id = $author_id`, {
-      bind: {
-        author_id: activeUserId
-      },
-      type: QueryTypes.SELECT
-    })
-    .then(posts => {
-      posts.forEach(item => {
-        item.name = activeUserName;
-      });
+    .query(
+      `SELECT posts.id, posts.title, posts.date, posts.text, posts.author_id, users.name FROM posts LEFT JOIN users ON posts.author_id = users.id WHERE users.id = $author_id`,
+      {
+        bind: {
+          author_id: activeUserId,
+        },
+        type: QueryTypes.SELECT,
+      }
+    )
+    .then((posts) => {
       res.json(posts);
     })
-    .catch(err => {
+    .catch((err) => {
       res.send(err);
     });
 };

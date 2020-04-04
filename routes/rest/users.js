@@ -11,8 +11,8 @@ const friendsPostsController = require("../../controllers/friends-post-controlle
 
 users.get("/", checkToken, searchController.searchUsers, removeSubsController.removeSubscription, addSubsController.addSubscription);
 users.get("/search", checkToken, searchController.searchUsers, removeSubsController.removeSubscription, addSubsController.addSubscription);
-users.get("/id/userPosts", checkToken, myPostsController.getMyPosts);
-users.post("/id/addPost", checkToken, addPostController.createPost);
+users.get("/:id/posts", checkToken, myPostsController.getMyPosts);
+users.post("/:id/addPost", checkToken, addPostController.createPost);
 users.get("/freindsPosts", checkToken, friendsPostsController.getFriendsPost);
 
 module.exports = users;

@@ -2,13 +2,11 @@ class MyPosts {
   constructor() {
     this.init = () => {
       const id = Cookies.get("id");
-      const name = Cookies.get("name");
 
       axios
-        .get("/api/v1/users/id/userPosts", {
+        .get(`/api/v1/users/${id}/posts`, {
           params: {
             userId: id,
-            userName: name
           }
         })
         .then(res => {
