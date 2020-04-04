@@ -9,6 +9,7 @@ class Home {
         this.clearUserList();
 
         this.searchingUser = this.getUserFromInput();
+        this.activeUserId = Cookies.get("id");
 
         if (!this.searchingUser) {
           return false;
@@ -16,7 +17,8 @@ class Home {
           axios
             .get("/api/v1/users/search", {
               params: {
-                user: this.searchingUser
+                requiredUser: this.searchingUser,
+                activeUserId: this.activeUserId
               }
             })
             .then(res => {
@@ -28,6 +30,26 @@ class Home {
             });
         }
       });
+
+      this.changeStatusUser = (id, status) => {
+        const idFollowing = parseInt(id);
+
+        axios
+          .get("/api/v1/users/search", {
+            params: {
+              followingId: idFollowing,
+              status: status,
+              activeUserId: this.activeUserId
+            }
+          })
+          .then(() => {
+            users.changeHeartsImg(id);
+            this.changeFollowingStatus(id);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      };
     };
   }
 
@@ -47,6 +69,17 @@ class Home {
     } else {
       return null;
     }
+  }
+
+  changeFollowingStatus(id) {
+    this.idNum = parseInt(id);
+    this.usersArray.forEach(item => {
+      if (item.id === this.idNum && item.following) {
+        item.following = null;
+      } else if (item.id === this.idNum) {
+        item.following = this.idNum;
+      }
+    });
   }
 }
 

@@ -14,14 +14,9 @@ class Users {
   createBlockUser(item) {
     this.blockUser = document.createElement("div");
     const fragment = document.createDocumentFragment();
-    const btn = document.createElement("button");
-    btn.classList.add("viev-user-posts");
-    btn.append("Viev posts");
-
     this.blockUser.classList.add("single-user");
-    fragment.append(this.createNewUser(item));
+    fragment.append(this.createNewUser(item), this.createHeart(item));
     this.blockUser.append(fragment);
-    this.blockUser.append(btn)
     return this.blockUser;
   }
 
@@ -30,6 +25,40 @@ class Users {
     this.newUser.append(item.name);
     this.newUser.classList.add("searched-user");
     return this.newUser;
+  }
+
+  changeHeartsImg(id) {
+    this.arrImg = Array.from(document.querySelectorAll('.img-heart'));
+    this.img = this.arrImg.find(item => item.id === id);
+    if(this.img.classList.contains('active')) {
+      this.img.setAttribute('src', '/img/subscribe.svg');
+    } else {
+      this.img.setAttribute('src', '/img/unsubscribe.svg');
+    }
+  }
+
+  createHeart(item) {
+    const img = document.createElement('img');
+    img.classList.add('img-heart');
+    img.setAttribute('id', item.id);
+
+    if(item.following) {
+      img.classList.add('active');
+      img.setAttribute('src', '/img/subscribe.svg');
+    } else {
+      img.setAttribute('src', '/img/unsubscribe.svg');
+    }
+
+    img.addEventListener('click', (e) => {
+      if(img.classList.contains('active')) {
+        img.classList.toggle('active');
+        home.changeStatusUser(e.target.id, 'active');
+      } else {
+        img.classList.toggle('active');
+        home.changeStatusUser(e.target.id, null);
+      }
+    });
+    return img;
   }
 
   myUsername() {

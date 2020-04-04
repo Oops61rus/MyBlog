@@ -1,8 +1,6 @@
 require("dotenv").config();
 const privateKey = process.env.JWT_SECRET;
 const jwt = require("jsonwebtoken");
-const path = require("path");
-const base = process.cwd();
 
 const checkToken = (req, res, next) => {
   const refreshToken = req.cookies.refreshToken;

@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/add-post.css" />
+    <link rel="stylesheet" href="css/my-posts.css" />
     <title>Document</title>
   </head>
   <body>
     <header class="main__header">
-      <h1>Add Post</h1>
+      <h1>Homepage</h1>
     </header>
     <main>
       <div class="left__panel">
@@ -23,18 +23,15 @@
         <button type="submit" class="logOut">Log Out</button>
       </div>
       <div class="main__block">
-        <form class="add__post__form">
-          <input type="text" class="post__name" placeholder="Post headline" />
-          <textarea class="post__body" placeholder="Post body"></textarea>
-          <button class="send__post__btn">Add post</button>
-        </form>
+        <div class="posts__list"></div>
       </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/friendsPosts.js"></script>
+    <script src="js/post.js"></script>
     <script src="js/userList.js"></script>
-    <script src="js/addPost.js"></script>
     <script src="js/logOut.js"></script>
   </body>
 </html>

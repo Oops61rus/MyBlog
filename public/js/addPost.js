@@ -16,7 +16,7 @@ class AddPost {
           return false;
         }
         axios
-          .post("/api/v1/users/id/add-post", { ...this.newPost })
+          .post("/api/v1/users/id/addPost", { ...this.newPost })
           .then(res => {
             res.data;
           })
