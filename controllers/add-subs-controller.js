@@ -12,15 +12,15 @@ const addSubscription = (req, res, next) => {
         {
           bind: {
             followerUserId: activeUserId,
-            followingUserId: followingUserId
+            followingUserId: followingUserId,
           },
-          type: QueryTypes.INSERT
+          type: QueryTypes.INSERT,
         }
       )
-      .then(res => {
+      .then((res) => {
         res.status(200).end();
       })
-      .catch(err => {
+      .catch((err) => {
         res.send(err);
       });
   } else {

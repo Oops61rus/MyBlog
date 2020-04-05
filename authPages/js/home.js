@@ -4,7 +4,7 @@ class Home {
 
     this.init = () => {
       this.searchButton = document.querySelector(".search__btn");
-      this.searchButton.addEventListener("click", e => {
+      this.searchButton.addEventListener("click", (e) => {
         e.preventDefault();
         this.clearUserList();
 
@@ -18,14 +18,14 @@ class Home {
             .get("/api/v1/users/search", {
               params: {
                 requiredUser: this.searchingUser,
-                activeUserId: this.activeUserId
-              }
+                activeUserId: this.activeUserId,
+              },
             })
-            .then(res => {
+            .then((res) => {
               this.usersArray = [...res.data];
               users.showUserOnList(this.usersArray);
             })
-            .catch(err => {
+            .catch((err) => {
               console.log(err);
             });
         }
@@ -39,14 +39,14 @@ class Home {
             params: {
               followingId: idFollowing,
               status: status,
-              activeUserId: this.activeUserId
-            }
+              activeUserId: this.activeUserId,
+            },
           })
           .then(() => {
             users.changeHeartsImg(id);
             this.changeFollowingStatus(id);
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
       };
@@ -73,7 +73,7 @@ class Home {
 
   changeFollowingStatus(id) {
     this.idNum = parseInt(id);
-    this.usersArray.forEach(item => {
+    this.usersArray.forEach((item) => {
       if (item.id === this.idNum && item.following) {
         item.following = null;
       } else if (item.id === this.idNum) {

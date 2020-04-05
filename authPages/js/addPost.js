@@ -5,9 +5,9 @@ class AddPost {
 
     this.init = () => {
       this.sendPostBtn = document.querySelector(".send__post__btn");
-      this.sendPostBtn.addEventListener("click", e => {
+      this.sendPostBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        this.newPost = this.getInputValues();
+        this.getInputValues();
         this.newPost.userId = Cookies.get("id");
         this.newPost.date = this.getDateTime();
         this.cleanInputsValue();
@@ -16,11 +16,11 @@ class AddPost {
           return false;
         }
         axios
-          .post(`/api/v1/users/${this.newPost.userId}/addPost`, { ...this.newPost })
-          .then(res => {
-            res.data;
+          .post(`/api/v1/posts`, { ...this.newPost })
+          .then((res) => {
+            alert(res.data);
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
       });
@@ -29,8 +29,9 @@ class AddPost {
 
   getDateTime() {
     const today = new Date();
-    const date = `${today.getFullYear()}-${today.getMonth() +
-      1}-${today.getDate()}`;
+    const date = `${today.getFullYear()}-${
+      today.getMonth() + 1
+    }-${today.getDate()}`;
     const time = `${today.getHours()}:${today.getMinutes()}`;
     return `Date: ${date} Time: ${time}`;
   }
@@ -47,7 +48,6 @@ class AddPost {
     if (this.titleValue && this.textValue) {
       this.newPost.title = this.titleValue;
       this.newPost.text = this.textValue;
-      return this.newPost;
     } else {
       return null;
     }

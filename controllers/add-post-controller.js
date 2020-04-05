@@ -13,16 +13,16 @@ const createPost = (req, res) => {
           title: newPost.title,
           date: newPost.date,
           text: newPost.text,
-          author_id: activeUser
+          author_id: activeUser,
         },
-        type: QueryTypes.INSERT
+        type: QueryTypes.INSERT,
       }
     )
     .then(() => {
       res.status(200);
       res.json("Post created");
     })
-    .catch(err => {
+    .catch((err) => {
       res.send(err);
     });
 };

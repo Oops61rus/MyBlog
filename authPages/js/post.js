@@ -4,7 +4,7 @@ class Post {
   showPost(arr) {
     this.postList = document.querySelector(".posts__list");
     const fragment = document.createDocumentFragment();
-    arr.forEach(item => {
+    arr.forEach((item) => {
       fragment.append(this.createPostBlock(item));
     });
     this.postList.append(fragment);

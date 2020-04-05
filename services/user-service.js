@@ -1,8 +1,8 @@
 const sequelize = require("../config/sequelize");
-const { QueryTypes } = require("sequelize"); // свойство QueryTypes из объекта sequelize
+const { QueryTypes } = require("sequelize");
 
 module.exports = {
-  registerUser: async data => {
+  registerUser: async (data) => {
     try {
       const result = await sequelize.query(
         `INSERT INTO users (email, name, password, refresh_token) VALUES ($email, $name, $password, $refresh_token) RETURNING id, name`,
@@ -11,9 +11,9 @@ module.exports = {
             name: data.name,
             email: data.email,
             password: data.password,
-            refresh_token: data.refresh_token
+            refresh_token: data.refresh_token,
           },
-          type: QueryTypes.INSERT
+          type: QueryTypes.INSERT,
         }
       );
       return result;
@@ -22,20 +22,20 @@ module.exports = {
     }
   },
 
-  authUser: async data => {
+  authUser: async (data) => {
     try {
       const result = await sequelize.query(
         `SELECT * FROM users WHERE email = $email`,
         {
           bind: {
-            email: data.email
+            email: data.email,
           },
-          type: QueryTypes.SELECT
+          type: QueryTypes.SELECT,
         }
       );
       return result;
     } catch (err) {
       return err;
     }
-  }
+  },
 };

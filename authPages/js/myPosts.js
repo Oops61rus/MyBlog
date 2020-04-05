@@ -5,10 +5,10 @@ class MyPosts {
 
       axios
         .get(`/api/v1/users/${id}/posts`)
-        .then(res => {
+        .then((res) => {
           post.showPost(res.data);
         })
-        .catch(err => {
+        .catch((err) => {
           console.log(err);
         });
     };

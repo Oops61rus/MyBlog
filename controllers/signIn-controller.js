@@ -13,14 +13,17 @@ const signInUser = async (req, res) => {
       const isHash = checkHash(user.password, userDB.password);
       if (isHash) {
         const accessToken = tokenService.accessToken(userDB.name, userDB.email);
-        const refreshToken = tokenService.refreshToken(userDB.name, userDB.email);
+        const refreshToken = tokenService.refreshToken(
+          userDB.name,
+          userDB.email
+        );
         const activeUser = { name: userDB.name, id: userDB.id };
         res
           .cookie("accessToken", accessToken, {
-            expires: new Date(Date.now() + 24 * 60 * 60 * 1000)
+            expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
           })
           .cookie("refreshToken", refreshToken, {
-            expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000)
+            expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
           })
           .json(activeUser);
       } else {

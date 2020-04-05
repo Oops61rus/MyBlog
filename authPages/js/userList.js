@@ -5,7 +5,7 @@ class Users {
     this.array = arr;
     this.list = document.querySelector(".userlist__block");
     const fragment = document.createDocumentFragment();
-    this.array.forEach(item => {
+    this.array.forEach((item) => {
       fragment.append(this.createBlockUser(item));
     });
     this.list.append(fragment);
@@ -28,33 +28,33 @@ class Users {
   }
 
   changeHeartsImg(id) {
-    this.arrImg = Array.from(document.querySelectorAll('.img-heart'));
-    this.img = this.arrImg.find(item => item.id === id);
-    if(this.img.classList.contains('active')) {
-      this.img.setAttribute('src', '/img/subscribe.svg');
+    this.arrImg = Array.from(document.querySelectorAll(".img-heart"));
+    this.img = this.arrImg.find((item) => item.id === id);
+    if (this.img.classList.contains("active")) {
+      this.img.setAttribute("src", "/img/subscribe.svg");
     } else {
-      this.img.setAttribute('src', '/img/unsubscribe.svg');
+      this.img.setAttribute("src", "/img/unsubscribe.svg");
     }
   }
 
   createHeart(item) {
-    const img = document.createElement('img');
-    img.classList.add('img-heart');
-    img.setAttribute('id', item.id);
+    const img = document.createElement("img");
+    img.classList.add("img-heart");
+    img.setAttribute("id", item.id);
 
-    if(item.following) {
-      img.classList.add('active');
-      img.setAttribute('src', '/img/subscribe.svg');
+    if (item.following) {
+      img.classList.add("active");
+      img.setAttribute("src", "/img/subscribe.svg");
     } else {
-      img.setAttribute('src', '/img/unsubscribe.svg');
+      img.setAttribute("src", "/img/unsubscribe.svg");
     }
 
-    img.addEventListener('click', (e) => {
-      if(img.classList.contains('active')) {
-        img.classList.toggle('active');
-        home.changeStatusUser(e.target.id, 'active');
+    img.addEventListener("click", (e) => {
+      if (img.classList.contains("active")) {
+        img.classList.toggle("active");
+        home.changeStatusUser(e.target.id, "active");
       } else {
-        img.classList.toggle('active');
+        img.classList.toggle("active");
         home.changeStatusUser(e.target.id, null);
       }
     });

@@ -13,15 +13,15 @@ const removeSubscription = (req, res, next) => {
         {
           bind: {
             followerUserId: activeUserId,
-            followingUserId: followingUserId
+            followingUserId: followingUserId,
           },
-          type: QueryTypes.DELETE
+          type: QueryTypes.DELETE,
         }
       )
-      .then(res => {
+      .then((res) => {
         res.status(200).end();
       })
-      .catch(err => {
+      .catch((err) => {
         res.send(err);
       });
   } else {

@@ -2,7 +2,7 @@ const sequelize = require("../config/sequelize");
 const { QueryTypes } = require("sequelize");
 
 const getFriendsPost = (req, res) => {
-  const activeUserId = req.query.userId;
+  const activeUserId = req.query.id;
 
   sequelize
     .query(
@@ -19,11 +19,9 @@ const getFriendsPost = (req, res) => {
       }
     )
     .then((posts) => {
-      console.log(posts);
       res.json(posts);
     })
     .catch((err) => {
-      console.log(err);
       res.send(err);
     });
 };

@@ -9,14 +9,14 @@ function SignUp() {
     const signUp = document.querySelector(".signUp__btn");
     let self = this;
 
-    signUp.addEventListener("click", function() {
+    signUp.addEventListener("click", function () {
       const isValid = self.checkPass();
       if (isValid) {
         self.addUser();
       }
     });
 
-    this.form.onkeyup = e => {
+    this.form.onkeyup = (e) => {
       if (e.key !== "Enter") return;
       const isValid = self.checkPass();
       if (isValid) {
@@ -27,16 +27,16 @@ function SignUp() {
 }
 
 SignUp.prototype = {
-  addUser: function() {
+  addUser: function () {
     const wrong = document.querySelector(".wrong");
     const success = document.querySelector(".success");
     axios
       .post("http://localhost:3000/api/v1/signUp", {
         name: this.name.value,
         email: this.email.value,
-        password: this.password.value
+        password: this.password.value,
       })
-      .then(res => {
+      .then((res) => {
         console.log(res);
         const span = document.createElement("span");
         span.append("Registration succsessfully!");
@@ -45,7 +45,7 @@ SignUp.prototype = {
           success.removeChild(span);
         }, 3000);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         const span = document.createElement("span");
         span.append(`Email is not unique \n ${error} \n`);
@@ -56,7 +56,7 @@ SignUp.prototype = {
       });
   },
 
-  checkPass: function() {
+  checkPass: function () {
     const wrong = document.querySelector(".wrong");
     if (
       this.password.value !== this.passwordConfirm.value ||
@@ -73,7 +73,7 @@ SignUp.prototype = {
     } else {
       return true;
     }
-  }
+  },
 };
 
 let signUp = new SignUp();

@@ -1,7 +1,7 @@
 const tokenService = require("../services/tokenCreator.js");
 const createHash = require("../services/createHash");
 const userService = require("../services/user-service");
-const validate = require("../services/validator");
+// const validate = require("../services/validator");
 
 const createUser = async (req, res) => {
   // validate([
@@ -28,7 +28,7 @@ const createUser = async (req, res) => {
       email: data.email,
       id: result[0].id,
       accessToken,
-      refreshToken
+      refreshToken,
     });
   } catch (err) {
     console.log(err);

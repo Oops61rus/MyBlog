@@ -11,15 +11,15 @@ const searchUsers = (req, res) => {
       {
         bind: {
           requiredUser: requiredUser,
-          activeUserId: activeUserId
+          activeUserId: activeUserId,
         },
-        type: QueryTypes.SELECT
+        type: QueryTypes.SELECT,
       }
     )
-    .then(users => {
+    .then((users) => {
       res.send(users);
     })
-    .catch(err => {
+    .catch((err) => {
       res.send(err);
       res.json("User not found");
     });
