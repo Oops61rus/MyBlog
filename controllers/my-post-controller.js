@@ -6,7 +6,10 @@ const getMyPosts = (req, res) => {
 
   sequelize
     .query(
-      `SELECT posts.id, posts.title, posts.date, posts.text, posts.author_id, users.name FROM posts LEFT JOIN users ON posts.author_id = users.id WHERE users.id = $author_id`,
+      `SELECT posts.id, posts.title, posts.date, posts.text, posts.author_id, users.name 
+      FROM posts LEFT JOIN users 
+      ON posts.author_id = users.id 
+      WHERE users.id = $author_id`,
       {
         bind: {
           author_id: activeUserId,

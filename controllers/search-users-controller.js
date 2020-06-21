@@ -7,7 +7,11 @@ const searchUsers = (req, res) => {
 
   sequelize
     .query(
-      `SELECT users.name, users.id, followers.following FROM users LEFT JOIN followers ON users.id = followers.following WHERE name = $requiredUser AND users.id != $activeUserId`,
+      `SELECT users.name, users.id, followers.following 
+      FROM users 
+      LEFT JOIN followers 
+      ON users.id = followers.following 
+      WHERE name = $requiredUser AND users.id != $activeUserId`,
       {
         bind: {
           requiredUser: requiredUser,
