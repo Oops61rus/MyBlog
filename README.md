@@ -29,7 +29,7 @@ DIALECT=postgres
 TIMESTAMPS=false
 ```
 
-#### To start:
+### To start:
 
 run the command
 
